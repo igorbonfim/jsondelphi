@@ -39,7 +39,7 @@ procedure TfrmJSONDelphi.btnCarregarJSONClick(Sender: TObject);
 var
   jsonObj: TJSONObject;
   jsonValue: TJSONValue;
-  ArrayPokemon, ArraySprites: TJSONArray;
+  ArrayPokemon: TJSONArray;
   i, idPokemon: Integer;
   urlImg: string;
 begin
@@ -63,7 +63,6 @@ begin
         idPokemon := StrToInt(jsonValue.GetValue<string>('id'));
 
         jsonValue := jsonObj.Get('types').JsonValue;
-        //MemoJSON.Lines.Add(jsonValue.ToString);
         ArrayPokemon :=  TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(jsonValue.ToString), 0) as TJSONArray;
 
         for i := 0 to ArrayPokemon.Size - 1 do
